@@ -1,6 +1,7 @@
 {
   "name": "js-image-rotation",
   "version": "0.1.0",
+  "homepage": "https://apps.pawail.com/js-image-rotation",
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
