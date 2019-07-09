@@ -1,0 +1,8 @@
+.ImageDisplayContainer {
+  padding: 1.2em 1em;
+  display: inline-block;
+}
+
+.ImageDisplayCanvas {
+  border: 1px solid red;
+}
