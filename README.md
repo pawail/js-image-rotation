@@ -1,6 +1,6 @@
 # Image Rotation using JavaScript
 
-This project uses a linear algebra based rotation algorithm to rotate images.
+This project uses a simple linear algebra based rotation algorithm to rotate images.
 
 ## Available Scripts
 
