@@ -1,6 +1,5 @@
-const PI = parseFloat(Math.PI.toFixed(2)),
-  TWO_PI = parseFloat((PI * 2.0).toFixed(2)),
-  PI_BY_TWO = parseFloat((PI / 2.0).toFixed(2));
+const TWO_PI = Math.PI * 2.0,
+  PI_BY_TWO = Math.PI / 2.0;
 
 class Rotator {
   /* 
@@ -21,7 +20,7 @@ class Rotator {
     pointX = rotatedX + centerX;
     pointY = rotatedY + centerY;
 
-    return { x: parseInt(pointX), y: parseInt(pointY) };
+    return { x: Math.round(pointX), y: Math.round(pointY) };
   }
 
   /* 
@@ -56,22 +55,22 @@ class Rotator {
 
   _rotate(data, width, height, angle) {
     const targetDimensions = this._calculateDimensions(width, height, angle),
-      deltaX = parseInt((targetDimensions.width - width) / 2.0),
-      deltaY = parseInt((targetDimensions.height - height) / 2.0),
+      deltaX = Math.round((targetDimensions.width - width) / 2.0),
+      deltaY = Math.round((targetDimensions.height - height) / 2.0),
       targetLineWidth = targetDimensions.width * 4,
       targetData = new Uint8ClampedArray(targetLineWidth * targetDimensions.height);
 
     const centerX = Math.trunc(width / 2),
       centerY = Math.trunc(height / 2),
-      sinValueForAngle = parseFloat(Math.sin(angle).toFixed(2)),
-      cosValueForAngle = parseFloat(Math.cos(angle).toFixed(2));
+      sinValueForAngle = Math.sin(angle),
+      cosValueForAngle = Math.cos(angle);
 
     const sourceLineWidth = width * 4;
 
     let row = 0;
 
     for (let i = 0, l = sourceLineWidth * height; i < l;) {
-      const x = parseInt((i % sourceLineWidth) / 4),
+      const x = Math.round((i % sourceLineWidth) / 4),
         y = row;
 
       const rotatedPoint = this._rotatePoint(x, y, centerX, centerY, sinValueForAngle, cosValueForAngle);
